@@ -63,13 +63,13 @@ flags : specifies optional flags.
 ### Create
 Create a resource from a file or from stdin.
 
-> Create a pod using the data in pod.json.
+### Create a pod using the data in pod.json.
 kubectl create -f ./pod.json
 
-> Create a pod based on the JSON passed into stdin.
+### Create a pod based on the JSON passed into stdin.
 cat pod.json | kubectl create -f -
 
-> Edit the data in docker-registry.yaml in JSON using the v1 API format then create the resource using the edited data.
+### Edit the data in docker-registry.yaml in JSON using the v1 API format then create the resource using the edited data.
 kubectl create -f docker-registry.yaml --edit --output-version=v1 -o json
 
 Create all the resources avaibale in the folder 
