@@ -174,11 +174,6 @@ docker rmi b750fe78269d
 ```
 
 Deletes `image`s.
-
-Also see
---------
-
- * [Getting Started](http://www.docker.io/gettingstarted/) _(docker.io)_
  
  
 # Dockerfile
@@ -261,10 +256,6 @@ LABEL description="This text illustrates \
 that label-values can span multiple lines."
 ```
 
-## See also
-
-- <https://docs.docker.com/engine/reference/builder/>
-
 
 # docker-compose
 
@@ -306,9 +297,6 @@ docker-compose ps
 docker-compose up
 docker-compose down
 ```
-
-## Reference
-{: .-three-column}
 
 ### Building
 
