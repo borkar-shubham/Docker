@@ -105,7 +105,7 @@ kubectl delete pods --all
 #### Delete all resources available in the folder.
 kubectl delete -f <folder_name
 
-### Edit
+### #Edit
 Edit a resource from the default editor.
 
 #### Edit the service named 'docker-registry':
@@ -120,7 +120,7 @@ kubectl edit job.v1.batch/myjob -o json
 #### Edit the deployment 'mydeployment' in YAML and save the modified config in its annotation:
 kubectl edit deployment/mydeployment -o yaml --save-config
 
-### Expose
+### #Expose
 Expose a resource as a new Kubernetes service.
 
 #### Create a service for a replicated nginx, which serves on port 80 and connects to the containers on port 8000.
@@ -176,7 +176,7 @@ kubectl get rc/web service/frontend pods/<pod-name
 #### List all resources with different types.
 kubectl get all
 
-### Run
+### #Run
 Create and run a particular image, possibly replicated.
 
 #### Start a single instance of nginx.
@@ -213,7 +213,7 @@ kubectl run pi --image=perl --restart=OnFailure -- perl -Mbignum=bpi -wle 'print
 #### Start the cron job to compute π to 2000 places and print it out every 5 minutes.
 kubectl run pi --schedule="0/5 * * * ?" --image=perl --restart=OnFailure -- perl -Mbignum=bpi -wle 'print bpi(2000)'
 
-### Set
+### #Set
 Configure application resources.
 
 #### Update deployment 'registry' with a new environment variable
@@ -278,7 +278,7 @@ kubectl set sa -f nginx-deployment.yaml serviceaccount1 --local --dry-run -o yam
 Useful deploy commands
 
 
-### Autoscale
+### #Autoscale
 Creates an autoscaler that automatically chooses and sets the number of pods that run in a kubernetes cluste
 
 #### Auto scale a deployment "foo", with the number of pods between 2 and 10, no target CPU utilization specified so a default autoscaling policy will be used:
@@ -286,7 +286,8 @@ kubectl autoscale deployment foo --min=2 --max=10
 
 #### Auto scale a replication controller "foo", with the number of pods between 1 and 5, target CPU utilization at 80%:
 kubectl autoscale rc foo --max=5 --cpu-percent=80
-Rollout
+
+### #Rollout
 Manage the rollout of a resource.
 
 #### Rollback to the previous deployment
@@ -320,7 +321,7 @@ kubectl rollout undo daemonset/abc --to-revision=3
 kubectl rollout undo --dry-run=true deployment/abc
 
 
-### Scale
+### #Scale
 Set a new size for a Deployment, ReplicaSet, Replication Controller, or StatefulSet.
 
 #### Scale a replicaset named 'foo' to 3.
@@ -338,10 +339,11 @@ kubectl scale --replicas=5 rc/foo rc/bar rc/baz
 #### Scale statefulset named 'web' to 3.
 kubectl scale --replicas=3 statefulset/web
 
-### Useful cluster management commands
+## Useful cluster management commands
+#### Display addresses of the master and services with label kubernetes.io/cluster-service=true 
 Cluster-info
-Display addresses of the master and services with label kubernetes.io/cluster-service=true To further debug and diagnose cluster problems, use ‘kubectl cluster-info dump’.
-
+To further debug and diagnose cluster problems, use ‘kubectl cluster-info dump’.
+  
 #### Print the address of the master and cluster services
 kubectl cluster-info
 Cordon / Uncordon
@@ -353,7 +355,7 @@ kubectl cordon foo
 #### Mark node "foo" as schedulable.
 kubectl uncordon foo
 
-### Drain
+### #Drain
 Drain node in preparation for maintenance.
 
 #### Drain node "foo", even if there are pods not managed by a ReplicationController, ReplicaSet, Job, DaemonSet or StatefulSet on it.
@@ -365,7 +367,7 @@ kubectl drain foo --grace-period=90
 #### Drain node by ignoring Deamonsets
 kubectl drain <node_name--ignore-daemonsets
 
-### Taint
+### #Taint
 Update the taints on one or more nodes.
 
 #### Update node 'foo' with a taint with key 'dedicated' and value 'special-user' and effect 'NoSchedule'. If a taint with that key and effect already exists, its value is replaced as specified.
@@ -381,7 +383,7 @@ kubectl taint nodes foo dedicated-
 kubectl taint node -l myLabel=X  dedicated=foo:PreferNoSchedule
 
 
-### Top
+### #Top
 Display Resource (CPU/Memory/Storage) usage.
 
 #### Show metrics for all nodes
@@ -404,7 +406,7 @@ kubectl top pod -l name=myLabel
 Useful troubleshooting and debugging commands
 
 
-### Describe
+### #Describe
 Show details of a specific resource or group of resources.
 
 #### Describe a node
@@ -425,7 +427,7 @@ kubectl describe po -l name=myLabel
 kubectl describe pods frontend
 
 
-### Exec
+### #Exec
 Execute a command in a container.
 
 #### Get output from running 'date' from pod 123456-7890, using the first container by default
@@ -442,7 +444,7 @@ Also note, do not surround your command and its flags/arguments with quotes unle
 
 kubectl exec 123456-7890 -i -t -- ls -t /usr
 
-### Logs
+### #Logs
 Print the logs for a container in a pod or specified resource. If the pod has only one container, the container name is optional.
 
 #### Return snapshot logs from pod nginx with only one container
@@ -470,7 +472,7 @@ kubectl logs job/hello
 kubectl logs deployment/nginx -c nginx-1
 
 
-### Proxy
+### #Proxy
 Creates a proxy server or application-level gateway between localhost and the Kubernetes API Server. It also allows serving static content over specified HTTP path. All incoming data enters through one port and gets forwarded to the remote kubernetes API Server port, except for the path matching the static content path.
 
 #### To proxy all of the kubernetes api and nothing else, use:
@@ -497,7 +499,7 @@ kubectl proxy --port=0
 
 ## Useful advanced commands
 
-### Apply
+### #Apply
 Apply a configuration to a resource by filename or stdin. The resource name must be specified. This resource will be created if it doesn’t exist yet. To use ‘apply’, always create the resource initially with either ‘apply’ or ‘create –save-config’.
 
 #### Apply the configuration in pod.json to a pod.
@@ -517,7 +519,7 @@ kubectl apply --prune -f manifest.yaml --all --prune-whitelist=core/v1/ConfigMap
 
 ## Useful settings commands
 
-### label
+### #label
 Update the labels on a resource.
 
 #### Update pod 'foo' with the label 'unhealthy' and the value 'true'.
@@ -540,7 +542,7 @@ kubectl label pods foo bar-
 
 ## Useful other commands
 
-### Config
+### #Config
 Modify kubeconfig files using subcommands like “kubectl config set current-context my-context”.
 
 #### Display the current-context
