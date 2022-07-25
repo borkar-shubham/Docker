@@ -58,43 +58,44 @@ command : specifies the operation that you want to perform on one or more resour
 type : specifies the resource type. Resource types are case-insensitive and you can specify the singular, plural, or abbreviated forms
 name : specifies the name of the resource. Names are case-sensitive. If the name is omitted, details for all resources are displayed
 flags : specifies optional flags.
-Useful basic commands
-Create
+
+## Useful basic commands
+### Create
 Create a resource from a file or from stdin.
 
-## Create a pod using the data in pod.json.
+Create a pod using the data in pod.json.
 kubectl create -f ./pod.json
 
-## Create a pod based on the JSON passed into stdin.
+Create a pod based on the JSON passed into stdin.
 cat pod.json | kubectl create -f -
 
-## Edit the data in docker-registry.yaml in JSON using the v1 API format then create the resource using the edited data.
+Edit the data in docker-registry.yaml in JSON using the v1 API format then create the resource using the edited data.
 kubectl create -f docker-registry.yaml --edit --output-version=v1 -o json
 
-## Create all the resources avaibale in the folder 
+Create all the resources avaibale in the folder 
 kubeclt create -f <folder_name>
 Delete
 Delete resources by filenames, stdin, resources and names, or by resources and label selector.
 
-## Delete a pod using the type and name specified in pod.json.
+Delete a pod using the type and name specified in pod.json.
 kubectl delete -f ./pod.json
 
-## Delete a pod based on the type and name in the JSON passed into stdin.
+Delete a pod based on the type and name in the JSON passed into stdin.
 cat pod.json | kubectl delete -f -
 
-## Delete pods and services with same names "baz" and "foo"
+Delete pods and services with same names "baz" and "foo"
 kubectl delete pod,service baz foo
 
-## Delete pods and services with label name=myLabel.
+Delete pods and services with label name=myLabel.
 kubectl delete pods,services -l name=myLabel
 
-## Delete a pod with minimal delay
+Delete a pod with minimal delay
 kubectl delete pod foo --now
 
-## Force delete a pod on a dead node
+Force delete a pod on a dead node
 kubectl delete pod foo --grace-period=0 --force
 
-## Delete all pods
+Delete all pods
 kubectl delete pods --all
 
 #Delete all resources available in the folder.
