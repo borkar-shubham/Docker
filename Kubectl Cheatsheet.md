@@ -61,9 +61,9 @@ type : specifies the resource type. Resource types are case-insensitive and you 
 name : specifies the name of the resource. Names are case-sensitive. If the name is omitted, details for all resources are displayed
 flags : specifies optional flags.
 
-### Useful basic commands
+## Useful basic commands
 
-### Create
+### #Create
 Create a resource from a file or from stdin.
 
 #### Create a pod using the data in pod.json.
@@ -78,7 +78,7 @@ kubectl create -f docker-registry.yaml --edit --output-version=v1 -o json
 #### Create all the resources avaibale in the folder 
 kubeclt create -f <folder_name
 
-### Delete
+### #Delete
 Delete resources by filenames, stdin, resources and names, or by resources and label selector.
 
 #### Delete a pod using the type and name specified in pod.json.
@@ -148,7 +148,7 @@ kubectl expose deployment nginx --port=80 --target-port=8000
 kubectl get pod <pod_name-o yaml|grep selfLink
 kubectl get --raw <selfLinkport/proxy/<filename
 
-### Get
+### #Get
 Display one or many resources.
 
 #### List all pods.
