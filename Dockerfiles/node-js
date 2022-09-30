@@ -1,4 +1,8 @@
-FROM node:10
+ARG VERSION
+
+FROM node:$VERSION
+
+**LABEL version=“1.0” maintainer=“Chris Rego <cXXXXXXo@gmail.com>”**
 
 RUN user add -m nodeapp
 
@@ -10,7 +14,7 @@ COPY package.json ./
 
 RUN npm install
 
-COPY . .
+COPY index.js src ./
 
 EXPOSE 8888
 
