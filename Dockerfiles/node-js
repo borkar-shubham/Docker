@@ -1,5 +1,9 @@
 FROM node:10
 
+RUN user add -m nodeapp
+
+USER nodeappuser
+
 WORKDIR /nodeapp
 
 COPY package.json ./
